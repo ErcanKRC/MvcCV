@@ -1,0 +1,22 @@
+﻿@using MvcCV.Models.Entity
+
+@model List<Certificates>
+    
+<div class="resume-section-content">
+    <h2 class="mb-5">Certifications</h2>
+    <ul class="fa-ul mb-0">
+        @foreach (var x in Model)
+        {
+            <li>
+                <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                    <div class="flex-grow-1">
+                        <h3 class="mb-0">@x.Title</h3>
+                        <div class="subheading mb-3">@x.SubTitle</div>
+                    </div>
+                    <div class="flex-shrink-0"><span class="text-primary">@(x.Date)</span></div>
+                </div>
+            </li>
+        }
+    </ul>
+</div>

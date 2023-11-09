@@ -1,0 +1,93 @@
+﻿@using MvcCV.Models.Entity
+
+@model List<SocialMedia>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Social Media List</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#SocialMediaAddModal">Add Social Media</button>
+                                <br />
+                                <br />
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10px" class="col-md-0.5">#</th>
+                                            <th class="col-md-4.5">Social Media</th>
+                                            <th class="col-md-1">State</th>
+                                            <th class="col-md-1">Update</th>
+                                            <th class="col-md-1">Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>@item.Id</td>
+                                                <td><a href="@item.Url">@item.Name</a></td>
+                                                <td>@item.State</td>
+
+                                                <td>
+                                                    <a href="/SocialMedia/UpdateSocialMedia/@item.Id" class="btn btn-info btn-sm"><i class="fas fa-pencil-alt"></i>Update</a>
+                                                </td>
+                                                <td>
+                                                    <a href="/SocialMedia/DeleteSocialMedia/@item.Id" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i>Delete</a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+
+        <div class="modal" id="SocialMediaAddModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Social Media Adding Panel</h2>
+                    </div>
+                    <form method="post" action="/SocialMedia/AddSocialMedia/">
+                        <div class="modal-body">
+                            <label>Social Media Name</label>
+                            <input type="text" name="Name" id="Name" class="form-control" />
+                            <br />
+                            <label>Social Media Link</label>
+                            <input type="text" name="Link" id="Link" class="form-control" />
+                            <br />
+                            <label>Social Media Icon</label>
+                            <input type="text" name="Icon" id="Icon" class="form-control" />
+                            <br />
+                            <button class="btn btn-info">Add</button>
+                            <br />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

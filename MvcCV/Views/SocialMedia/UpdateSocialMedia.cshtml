@@ -1,0 +1,25 @@
+﻿@using MvcCV.Models.Entity
+
+@model SocialMedia
+
+@{
+    ViewBag.Title = "UpdateSocialMedia";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>UpdateSocialMedia</h2>
+
+
+<form class="form-group" method="post">
+
+    @Html.LabelFor(x => x.Name, "Name")
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Url, "Url")
+    @Html.TextBoxFor(x => x.Url, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Icon, "Icon")
+    @Html.TextBoxFor(x => x.Icon, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Update</button>
+</form>

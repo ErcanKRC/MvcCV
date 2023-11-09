@@ -1,0 +1,30 @@
+﻿@using MvcCV.Models.Entity
+
+@model Certificates
+
+@{
+    ViewBag.Title = "AddCertificate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>New Certificate add page</h2>
+<br />
+
+<form class="form-group" method="post">
+
+    @Html.LabelFor(x => x.Title, "Title")
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Title, "", new { @style = "color:red" })
+    <br />
+    @Html.LabelFor(x => x.SubTitle, "Subtitle")
+    @Html.TextBoxFor(x => x.SubTitle, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.SubTitle, "", new { @style = "color:red" })
+    <br />
+    @Html.LabelFor(x => x.Date, "Date")
+    @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Date, "", new { @style = "color:red" })
+    <br />
+
+    <button class="btn btn-info">Save</button>
+</form>

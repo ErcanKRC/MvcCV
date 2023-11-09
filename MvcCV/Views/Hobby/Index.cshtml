@@ -1,0 +1,55 @@
+﻿@using MvcCV.Models.Entity
+
+@model List<Hobbies>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<div class="card card-success">
+    <div class="card-header">
+        <h3 class="card-title">Hobbies</h3>
+
+        <div class="card-tools">
+            <a href="/Hobby/AddHobby/" class="btn btn-check"> <i class="fas fa-plus">Add Hobby</i></a>
+        </div>
+        <!-- /.card-tools -->
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body" style="display: block;">
+
+        @foreach (var item in Model)
+        {
+            <div class="card card-primary collapsed-card">
+                <div class="card-header ">
+                    <h3 class="card-title">@item.Description1</h3>
+
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                    <!-- /.card-tools -->
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body" style="display: none;">
+                    <div class=" row">
+                        <div class="col-md-10">
+                            @item.Description2
+                        </div>
+                        <span class="col-md-2">
+                            <a href="/Hobby/EditHobby/@item.Id" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i>  Edit</a>
+                            <a href="/Hobby/DeleteHobby/@item.Id" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i>  Delete</a>
+                        </span>
+                    </div>
+
+                </div>
+                <!-- /.card-body -->
+            </div>
+        }
+    </div>
+
+    <!-- /.card-body -->
+</div>

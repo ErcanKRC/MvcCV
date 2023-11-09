@@ -1,0 +1,26 @@
+﻿@using MvcCV.Models.Entity
+
+@model Hobbies
+
+@{
+    ViewBag.Title = "AddCertificate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Hobby Edit Page</h2>
+<br />
+
+<form class="form-group" method="post">
+
+    @Html.LabelFor(x => x.Description1, "Title")
+    @Html.TextBoxFor(x => x.Description1, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Description1, "", new { @style = "color:red" })
+    <br />
+    @Html.LabelFor(x => x.Description2, "Description")
+    @Html.TextAreaFor(x => x.Description2, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Description2, "", new { @style = "color:red" })
+    <br />
+
+    <button class="btn btn-info">Update</button>
+</form>

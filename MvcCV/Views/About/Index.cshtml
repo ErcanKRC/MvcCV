@@ -1,0 +1,48 @@
+﻿@using MvcCV.Models.Entity
+
+@model List<About>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>About Edit Page</h2>
+<br />
+
+<form class="form-group" method="post">
+    @foreach (var item in Model)
+    {
+        <input type="hidden" name="Id" id="Id" value="@item.Id" />
+
+        <label for="name">Name</label>
+        <input type="text" name="Name" id="Name" value="@item.Name" class="form-control" />
+        <br />
+
+        <label for="Surname">Surname</label>
+        <input type="text" name="SurName" id="Surname" value="@item.SurName" class="form-control" />
+        <br />
+
+        <label for="Adress">Adress</label>
+        <input type="text" name="Adress" id="Adress" value="@item.Adress" class="form-control" />
+        <br />
+
+        <label for="Phone">Phone</label>
+        <input type="text" name="Phone" id="Phone" value="@item.Phone" class="form-control" />
+        <br />
+
+        <label for="Mail">Mail</label>
+        <input type="text" name="Mail" id="Mail" value="@item.Mail" class="form-control" />
+        <br />
+
+        <label for="Photo">Photo</label>
+        <input type="text" name="Photo" id="Photo" value="@item.Photo" class="form-control" />
+        <br />
+
+        <label for="Description">Description</label>
+        <textarea rows="5" class="form-control" name="Description" id="Description">@item.Description</textarea>
+
+        <br />
+        <button class="btn btn-success">Update</button>
+    }
+</form>

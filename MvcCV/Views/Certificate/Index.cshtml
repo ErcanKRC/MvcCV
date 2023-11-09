@@ -1,0 +1,56 @@
+﻿@using MvcCV.Models.Entity
+
+@model List<Certificates>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header p-2">
+                            <a href="/Certificate/AddCertificate/" class="btn btn-warning">Add a Certificate</a>
+                        </div><!-- /.card-header -->
+                        <div class="card-body">
+                            <div class="tab-pane" id="timeline">
+                                <!-- The timeline -->
+                                <div class="timeline timeline-inverse">
+                                    @foreach (var item in Model)
+                                    {
+                                        <div class="time-label">
+                                            <span class="bg-success">
+                                                @(((DateTime)item.Date).ToString("dd-MM-yyyy"))
+                                            </span>
+                                        </div>
+                                        <div >
+                                            <div class="timeline-item row">
+                                                <h3 class="timeline-header col-md-10"><a href="/Certificate/GetCertificate/@item.Id">@item.Title</a> - @item.SubTitle</h3>
+                                                <span class="time col-md-2">
+                                                    <a href="/Certificate/UpdateCertificate/@item.Id" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i>  Update</a>
+                                                    <a href="/Certificate/DeleteCertificate/@item.Id" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i>  Delete</a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.tab-content -->
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.nav-tabs-custom -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+</body>
+</html>

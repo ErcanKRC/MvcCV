@@ -1,0 +1,16 @@
+﻿@using MvcCV.Models.Entity
+
+@model List<Hobbies>
+
+<div class="resume-section-content">
+    <h2 class="mb-5">Hobbies</h2>
+    @foreach (var x in Model)
+    {
+        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+            <div class="flex-grow-1">
+                <h3 class="mb-0">@x.Description1</h3>
+                <div class="flex-grow-2"><span class="text-secondary">@x.Description2</span></div>
+            </div>
+        </div>
+    }
+</div>

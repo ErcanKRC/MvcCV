@@ -1,0 +1,96 @@
+﻿@using MvcCV.Models.Entity
+
+@model List<Abilities>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@{
+    string progressBarColor = null;
+    string labelcolor = null;
+}
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Ability List</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <a href="/Ability/AddAbility/" class="btn btn-primary">Add Ability</a>
+                                <br />
+                                <br />
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10px" class="col-md-0.5">#</th>
+                                            <th class="col-md-4.5">Task</th>
+                                            <th class="col-md-4">Progress</th>
+                                            <th style="width: 40px" class="col-md-1">Label</th>
+                                            <th class="col-md-1">Update</th>
+                                            <th class="col-md-1">Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            if (item.Ratio >= 0 && item.Ratio <= 50)
+                                            {
+                                                progressBarColor = "progress-bar bg-danger";
+                                                labelcolor = "badge bg-danger";
+                                            }
+                                            else if (item.Ratio > 50 && item.Ratio <= 70)
+                                            {
+                                                progressBarColor = "progress-bar bg-warning";
+                                                labelcolor = "badge bg-warning";
+                                            }
+                                            else if (item.Ratio > 70 && item.Ratio <= 85)
+                                            {
+                                                progressBarColor = "progress-bar bg-primary";
+                                                labelcolor = "badge bg-primary";
+                                            }
+                                            else
+                                            {
+                                                progressBarColor = "progress-bar bg-success";
+                                                labelcolor = "badge bg-success";
+                                            }
+                                            <tr>
+                                                <td>@item.Id</td>
+                                                <td>@item.Ability</td>
+                                                <td>
+                                                    <div class="progress progress-xs">
+                                                        <div class="@progressBarColor" style="width:@(item.Ratio)%"></div>
+                                                    </div>
+                                                </td>
+                                                <td><span class="@labelcolor">@item.Ratio%</span></td>
+                                                <td>
+                                                    <a href="/Ability/UpdateAbility/@item.Id" class="btn btn-info btn-sm"><i class="fas fa-pencil-alt"></i>Update</a>
+                                                </td>
+                                                <td>
+                                                    <a href="/Ability/DeleteAbility/@item.Id" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i>Delete</a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+</body>
+</html>

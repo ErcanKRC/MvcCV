@@ -1,0 +1,22 @@
+﻿@using MvcCV.Models.Entity
+
+@model Abilities
+
+
+@{
+    ViewBag.Title = "UpdateAbility";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>UpdateAbility</h2>
+
+<form class="form-group" method="post">
+
+    @Html.LabelFor(x => x.Ability, "Ability")
+    @Html.TextBoxFor(x => x.Ability, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Ratio, "Ratio")
+    @Html.TextBoxFor(x => x.Ratio, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Update</button>
+</form>

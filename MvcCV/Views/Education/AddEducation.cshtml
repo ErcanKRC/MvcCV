@@ -1,0 +1,38 @@
+﻿@using MvcCV.Models.Entity
+
+@model Educations
+
+@{
+    ViewBag.Title = "AddEducation";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>New education add page</h2>
+<br />
+
+<form class="form-group" method="post">
+
+    @Html.LabelFor(x => x.Title, "Title")
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Title, "", new { @style = "color:red" })
+    <br />
+    @Html.LabelFor(x => x.Subtitle1, "Subtitle")
+    @Html.TextBoxFor(x => x.Subtitle1, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Subtitle1, "", new { @style = "color:red" })
+    <br />
+    @Html.LabelFor(x => x.Subtitle2, "Subtitle 2")
+    @Html.TextBoxFor(x => x.Subtitle2, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Subtitle2, "", new { @style = "color:red" })
+    <br />
+    @Html.LabelFor(x => x.GPA, "GPA")
+    @Html.TextBoxFor(x => x.GPA, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.GPA, "", new { @style = "color:red" })
+    <br />
+    @Html.LabelFor(x => x.Date, "Date")
+    @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Date, "", new { @style = "color:red" })
+    <br />
+
+    <button class="btn btn-info">Save</button>
+</form>

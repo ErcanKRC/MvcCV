@@ -1,0 +1,32 @@
+﻿@using MvcCV.Models.Entity
+
+@model Experiences
+
+@{
+    ViewBag.Title = "UpdateExperience";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Experience Update Page</h2>
+<br />
+
+<form method="post">
+
+    @Html.LabelFor(x => x.Id, "Experience ID")
+    @Html.TextBoxFor(x => x.Id, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Company, "Company")
+    @Html.TextBoxFor(x => x.Company, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Title, "Title")
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Date, "Date")
+    @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Description, "Description")
+    @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Update</button>
+</form>
